@@ -209,6 +209,29 @@ h1::first-letter {
   height: 600px;
 }
 
+#popup {
+  padding: 0 6px;
+}
+
+.popupTitle {
+  font-size: 15px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.popupSubtitle {
+  font-size: 12px;
+  font-weight: 300;
+  display: block;
+  margin-bottom: 15px;
+  color: grey;
+}
+
+.popupContent {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
 /* ---------------------------------------------------
     FOOTER
 ----------------------------------------------------- */

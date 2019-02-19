@@ -24,16 +24,23 @@ $(document).ready(function(){
                 // create the popup
                 var popup = new mapboxgl.Popup({ offset: 25 })
                 // .setHTML('<strong>' + marker.name + '</strong>' + '<br> <small class="text-muted">' + marker.address + '</small><br>' + marker.status);
-                .setHTML(`<strong>${marker.name}</strong> <br> 
-                        <small class="text-muted">${marker.address}</small> <br>
-                        <div class="row">
-                            <div class="col-6">
-                                ${marker.available_bikes} <i class="fas fa-bicycle"></i>
+                .setHTML(`  <div id="popup">
+                                <h5 class="popupTitle">${marker.name}</h5> 
+                                <h6 class="popupSubtitle">${marker.address}</h6>
+                                <div class="row popupContent">
+                                    <div class="col-6">
+                                        ${marker.available_bikes} <i class="fas fa-bicycle"></i>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        ${marker.status}
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#modalBooking">
+                                        Réserver
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-6 text-right">
-                                ${marker.status}
-                            </div>
-                        </div>
                         `);
          
                 

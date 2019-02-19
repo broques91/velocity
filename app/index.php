@@ -145,17 +145,28 @@
                 <div class="container-fluid">
                     <h2 class="text-center">Carte et stations</h2>
                     <p class="text-center text-muted">Choisissez votre station sur la carte pour vérifier les disponibilités et réserver votre vélo.</p>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div id='map'></div>
+                    
+                    <div id='map'></div>
+                        
+                    <!-- Modal Booking -->
+                    <div class="modal fade" id="modalBooking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Info station</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="col-md-3">
-                            <h3 class="text-center">Réservation</h3>
-                            <p>Nom</p>
-                            <p>Prénom</p>
-                            <p>Places</p>
-                            <p>Vélos</p>
+                        <div class="modal-body">
+                            ...
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 
