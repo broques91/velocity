@@ -29,25 +29,25 @@
                         <div class="card">
                             <img src="http://via.placeholder.com/250x200" class="card-img-top" alt="...">
                             <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">Etape 1</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            
                             </div>
                         </div>
                         <div class="card">
                             <img src="http://via.placeholder.com/250x200" class="card-img-top" alt="...">
                             <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">Etape 2</h5>
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            
                             </div>
                         </div>
                         <div class="card">
                             <img src="http://via.placeholder.com/250x200" class="card-img-top" alt="...">
                             <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">Etape 3</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            
                             </div>
                         </div>
                         </div>
@@ -117,9 +117,9 @@
                                             <!-- Avatar -->
                                             <div class="custom-file">
                                                 <input type="file" name="signin-avatar" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                                <label class="custom-file-label" for="customFile">Choose picture</label>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group my-2 text-left">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                                                     <label class="form-check-label" for="invalidCheck">

@@ -25,8 +25,16 @@ $(document).ready(function(){
                 var popup = new mapboxgl.Popup({ offset: 25 })
                 // .setHTML('<strong>' + marker.name + '</strong>' + '<br> <small class="text-muted">' + marker.address + '</small><br>' + marker.status);
                 .setHTML(`<strong>${marker.name}</strong> <br> 
-                        <small class="text-muted text-lowercase">${marker.address}</small> <br> 
-                        ${marker.status}`);
+                        <small class="text-muted">${marker.address}</small> <br>
+                        <div class="row">
+                            <div class="col-6">
+                                ${marker.available_bikes} <i class="fas fa-bicycle"></i>
+                            </div>
+                            <div class="col-6 text-right">
+                                ${marker.status}
+                            </div>
+                        </div>
+                        `);
          
                 
                 // el.addEventListener('click', function() {

@@ -15,12 +15,10 @@
                     <div class="form-group">
                         <input type="text" name="login-password" class="form-control" placeholder="Password">
                     </div>
-                    <input type="submit" name="submit-login" value="Connect" class="btn btn-primary">
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            <input type="submit" name="submit-login" value="Connect" class="btn btn-block btn-primary ">
             </div>
         </div>
     </div>
