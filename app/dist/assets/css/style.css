@@ -1,0 +1,234 @@
+@import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
+/* ---------------------------------------------------
+    GENERAL STYLE
+----------------------------------------------------- */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+  transition: all .3s;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------------------------------------------------
+    NAVBAR STYLE
+----------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: -250px;
+  overflow-y: scroll;
+  width: 250px;
+  height: 100vh;
+  transition: all .3s;
+  color: #fff;
+  background: #7386d5;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
+}
+
+#sidebar.active {
+  left: 0;
+}
+
+#dismiss {
+  line-height: 35px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: all .3s;
+  text-align: center;
+  background: #7386d5;
+}
+
+#dismiss:hover {
+  color: #7386d5;
+  background: #fff;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 998;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  transition: all .5s ease-in-out;
+  opacity: 0;
+  background: rgba(0, 0, 0, .7);
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #6d7fcc;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+  padding: 10px;
+  color: #fff;
+}
+
+#sidebar ul li a {
+  font-size: 1.1em;
+  display: block;
+  padding: 10px;
+}
+
+#sidebar ul li a:hover {
+  color: #7386d5;
+  background: #fff;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded='true'] {
+  color: #fff;
+  background: #6d7fcc;
+}
+
+a[data-toggle='collapse'] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  display: block;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+ul ul a {
+  font-size: .9em !important;
+  padding-left: 30px !important;
+  background: #6d7fcc;
+}
+
+ul.CTAs {
+  padding: 20px;
+}
+
+ul.CTAs a {
+  font-size: .9em !important;
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+a.download {
+  color: #7386d5;
+  background: #fff;
+}
+
+a.article,
+a.article:hover {
+  color: #fff !important;
+  background: #6d7fcc !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  transition: all .3s;
+}
+
+h1::first-letter {
+  color: red;
+}
+
+.bx-prev,
+.bx-next {
+  visibility: hidden;
+}
+
+.jumbotron {
+  height: 100vh;
+  padding-top: 300px;
+  color: white;
+  background-image: url('../../../src/assets/img/bg-landing.jpeg');
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.display-4 {
+  color: white;
+}
+
+/* ---------------------------------------------------
+    MAP STYLE
+----------------------------------------------------- */
+#main {
+  height: 100vh;
+}
+
+#main .container-fluid {
+  padding-top: 100px;
+}
+
+#marker {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-image: url('../../../src/assets/img/marker.png');
+  background-size: cover;
+}
+
+#map {
+  width: 100%;
+  height: 600px;
+}
+
+/* ---------------------------------------------------
+    FOOTER
+----------------------------------------------------- */
+footer {
+  bottom: 0;
+  padding: 10px;
+  text-align: center;
+}
