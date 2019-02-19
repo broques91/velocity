@@ -1,5 +1,7 @@
 // Requis
 var gulp = require('gulp');
+var rename = require("gulp-rename");
+var uglify = require('gulp-uglify-es').default;
 
 // Include plugins
 var plugins = require('gulp-load-plugins')(); // tous les plugins de package.json
@@ -53,16 +55,10 @@ gulp.task('watch', function () {
     gulp.watch("app/*.html").on('change', browserSync.reload);
 });
 
-
-var uglify = require('gulp-uglify');
-var pump = require('pump');
-    
-gulp.task('compress', function (cb) {
-  pump([
-        gulp.src(source + '/assets/js/app.js'),
-        uglify(),
-        gulp.dest(destination + '/assets/js/')
-      ],
-      cb
-    );
+ 
+gulp.task("uglify", function () {
+    return gulp.src(source + '/assets/js/app.js')
+        .pipe(rename("app.min.js"))
+        .pipe(uglify(/* options */))
+        .pipe(gulp.dest(destination + '/assets/js/'));
 });

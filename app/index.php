@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include('app/src/assets/inc/head.php'); ?>
+    <?php include('inc/head.php'); ?>
 </head>
 <body>
     <div class="wrapper">
         <!-- Sidebar -->
-        <?php include('app/src/assets/inc/sidebar.php'); ?>
+        <?php include('inc/sidebar.php'); ?>
         <!-- Page Content  -->
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
@@ -68,7 +68,7 @@
                             Déja inscrit ? <button type="button" class="btn btn-lg btn-link p-0" data-toggle="modal" data-target="#loginModal">
                             Connectez-vous
                             </button>
-                            <?php include('inc/modal-login.php'); ?>
+                            <?php include('inc/modules/modals/modal-login.php'); ?>
                         </p>
                         <!---------- SignupModal ------------>
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -175,7 +175,7 @@
 
     <!-- Scripts -->
      <!-- jQuery -->
-    <script src="app/src/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="src/assets/js/jquery-3.3.1.min.js"></script>
     <!-- BX Slider -->
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <!-- Popper.JS -->
@@ -187,7 +187,7 @@
     <!-- Mapbox -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <!-- Custom JS -->
-    <script src="app/src/assets/js/app.js"></script>
+    <script src="src/assets/js/app.js"></script>
 
     <script type="text/javascript">
         // Sidebar

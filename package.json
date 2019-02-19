@@ -11,11 +11,6 @@
     "gulp-load-plugins": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
-    "gulp-uglify": "^3.0.1"
-  },
-  "dependencies": {
-    "pump": "^3.0.0",
-    "readable-stream": "^3.1.1",
-    "uglify-es": "^3.3.9"
+    "gulp-uglify-es": "^1.0.4"
   }
 }

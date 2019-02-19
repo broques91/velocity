@@ -23,7 +23,10 @@ $(document).ready(function(){
 
                 // create the popup
                 var popup = new mapboxgl.Popup({ offset: 25 })
-                .setHTML(marker.name + '<br> <small class="text-muted">' + marker.address + '</small><br>' + marker.status);
+                // .setHTML('<strong>' + marker.name + '</strong>' + '<br> <small class="text-muted">' + marker.address + '</small><br>' + marker.status);
+                .setHTML(`<strong>${marker.name}</strong> <br> 
+                        <small class="text-muted text-lowercase">${marker.address}</small> <br> 
+                        ${marker.status}`);
          
                 
                 // el.addEventListener('click', function() {

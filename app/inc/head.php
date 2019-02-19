@@ -11,4 +11,4 @@
 <!-- Mapbox -->
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 <!-- Custom CSS -->
-<link rel="stylesheet" type="text/css" href="app/dist/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="dist/assets/css/style.css">
