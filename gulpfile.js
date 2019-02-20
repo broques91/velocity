@@ -21,6 +21,13 @@ gulp.task('sass', function () {
         .pipe(browserSync.stream());
 });
 
+gulp.task("uglify", function () {
+  return gulp.src(source + '/assets/js/app.js')
+      .pipe(rename("app.min.js"))
+      .pipe(uglify(/* options */))
+      .pipe(gulp.dest(destination + '/assets/js/'));
+});
+
 // Tâche "minify" = minification CSS (destination -> destination)
 gulp.task('minify', function () {
     return gulp.src(destination + '/assets/css/*.css')
@@ -57,9 +64,3 @@ gulp.task('watch', function () {
 });
 
  
-gulp.task("uglify", function () {
-    return gulp.src(source + '/assets/js/app.js')
-        .pipe(rename("app.min.js"))
-        .pipe(uglify(/* options */))
-        .pipe(gulp.dest(destination + '/assets/js/'));
-});

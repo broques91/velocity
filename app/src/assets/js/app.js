@@ -59,7 +59,7 @@ $.ajax({
 
                             <div class="text-center">
                             <form onSubmit="formSubmitPopup(event)">
-                                <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
+                                <input class="btn btn-sm btn-primary" type="submit" value="RESERVER">
                             </form>
                             </div>
                         </div>
@@ -87,7 +87,7 @@ function formSubmitPopup(event){
     // AJAX request
     $.ajax({
         type: "POST",
-        url: `${urlAPI}/index.php`,
+        url: `${urlAPI}/test.php`,
         data: "test",
         success: function(data){
             console.log(data);

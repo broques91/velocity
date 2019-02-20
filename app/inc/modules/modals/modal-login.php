@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="my-3" action="">
+                <form id="formLogin" class="my-3" action="">
                     <div class="form-group">
                         <input type="text" name="login-username" class="form-control" placeholder="Username">
                     </div>
@@ -18,7 +18,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-            <input type="submit" name="submit-login" value="Connect" class="btn btn-block btn-primary ">
+            <input type="submit" name="submit-login" value="Login" class="btn btn-block btn-primary ">
             </div>
         </div>
     </div>

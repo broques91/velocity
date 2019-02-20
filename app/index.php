@@ -185,7 +185,7 @@
 
     <!-------------------------------- Scripts ------------------------------------>
      <!-- jQuery -->
-    <script src="src/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="dist/assets/js/jquery-3.3.1.min.js"></script>
     <!-- BX Slider -->
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <!-- Popper.JS -->
