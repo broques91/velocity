@@ -55,12 +55,13 @@ gulp.task('watch', function () {
     gulp.watch(source + '/assets/js/*.js', ['build']);
 });
 
-  gulp.task('serve', ['sass'], function() {
+  gulp.task('serve', ['sass', 'uglify'], function() {
     browserSync.init({
-        server: "./app"
+        proxy: "http://localhost/projects/velocity/app"
     });
     gulp.watch(source + "/assets/sass/*.scss", ['sass']);
-    gulp.watch("app/*.html").on('change', browserSync.reload);
+    gulp.watch(source + "/assets/js/*.js", ['uglify']);
+    gulp.watch("app/*.php").on('change', browserSync.reload);
 });
 
  
