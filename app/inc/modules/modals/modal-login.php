@@ -13,12 +13,12 @@
                         <input type="text" name="login-username" class="form-control" placeholder="Username">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="login-password" class="form-control" placeholder="Password">
+                        <input type="password" name="login-password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="login-submit" value="Login" class="btn btn-block btn-primary ">
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-            <input type="submit" name="login-submit" value="Login" class="btn btn-block btn-primary ">
             </div>
         </div>
     </div>

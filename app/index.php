@@ -198,7 +198,6 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <!-- Custom JS -->
     <script src="dist/assets/js/app.min.js"></script>
- 
 
 </body>
 </html>
