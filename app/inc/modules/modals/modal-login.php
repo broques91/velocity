@@ -18,7 +18,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-            <input type="submit" name="submit-login" value="Login" class="btn btn-block btn-primary ">
+            <input type="submit" name="login-submit" value="Login" class="btn btn-block btn-primary ">
             </div>
         </div>
     </div>
