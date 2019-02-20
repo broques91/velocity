@@ -1,3 +1,8 @@
+<?php
+    header('Access-Control-Allow-Origin: *');
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

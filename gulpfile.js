@@ -67,7 +67,7 @@ gulp.task('watch', function () {
 
   gulp.task('serve', ['sass', 'concat'], function() {
     browserSync.init({
-        proxy: "http://localhost/projects/velocity/app"
+        proxy: "http://localhost:8888/projects/velocity/app"
     });
     gulp.watch(source + "/assets/sass/*.scss", ['sass']);
     gulp.watch(source + "/assets/js/*.js", ['concat']);

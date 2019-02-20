@@ -1,4 +1,4 @@
-var urlAPI = 'http://localhost/projects/velocity/api';
+var urlAPI = 'http://localhost:8888/projects/velocity/api';
 
 $('#formLogin').submit(function(event) {
     event.preventDefault();
