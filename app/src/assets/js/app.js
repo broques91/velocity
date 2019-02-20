@@ -25,7 +25,7 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
 center: [4.8320114, 45.7578137],
-zoom: 11
+zoom: 12
 });
 
 var urlAPI = 'http://localhost/projects/velocity/api';
@@ -59,7 +59,7 @@ $.ajax({
 
                             <div class="text-center">
                             <form onSubmit="formSubmitPopup(event)">
-                                <input class="btn btn-sm btn-primary" type="submit" value="RESERVER">
+                                <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
                             </form>
                             </div>
                         </div>
