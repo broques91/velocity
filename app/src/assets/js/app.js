@@ -1,128 +1,98 @@
-$(document).ready(function(){
+// Sidebar
+ $("#sidebar").mCustomScrollbar({
+    theme: "minimal"
+});
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoidGhvbWFzMzMiLCJhIjoiY2pzYWFpcXNwMDAxbzN5cGZneGxia3U3ZCJ9.sigYT2nlLnC1siycJ3im-Q';
-    var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [4.8320114, 45.7578137],
-    zoom: 11
-    });
+$('#dismiss, .overlay').on('click', function () {
+    // hide sidebar
+    $('#sidebar').removeClass('active');
+    // hide overlay
+    $('.overlay').removeClass('active');
+});
 
+$('#sidebarCollapse').on('click', function () {
+    // open sidebar
+    $('#sidebar').addClass('active');
+    // fade in the overlay
+    $('.overlay').addClass('active');
+    $('.collapse.in').toggleClass('in');
+    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+});
 
-    $.ajax({
-        type: "GET",
-        //dataType: "JSON",
-        url: "https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=18125dec00ffb281d822ceefb633311dc8ba4d7d",
-       
-        success: function(data){
-            console.log(data);
-            data.forEach(function(marker) {
-                // create a DOM element for the marker
-                var el = document.createElement('div');
-                el.id = 'marker';
+// Mapbox
+mapboxgl.accessToken = 'pk.eyJ1IjoidGhvbWFzMzMiLCJhIjoiY2pzYWFpcXNwMDAxbzN5cGZneGxia3U3ZCJ9.sigYT2nlLnC1siycJ3im-Q';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [4.8320114, 45.7578137],
+zoom: 11
+});
 
-                // create the popup
-                var popup = new mapboxgl.Popup({ offset: 25 })
-                // .setHTML('<strong>' + marker.name + '</strong>' + '<br> <small class="text-muted">' + marker.address + '</small><br>' + marker.status);
-                .setHTML(`  <div id="popup">
-                                <h5 class="popupTitle">${marker.name}</h5> 
-                                <h6 class="popupSubtitle">${marker.address}</h6>
-                                <div class="row popupContent">
-                                    <div class="col-6">
-                                        ${marker.available_bikes} <i class="fas fa-bicycle"></i>
-                                    </div>
-                                    <div class="col-6 text-right">
-                                        ${marker.status}
-                                    </div>
+var urlAPI = 'http://localhost/projects/velocity/api';
+
+$.ajax({
+    type: "GET",
+    //dataType: "JSON",
+    url: "https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=18125dec00ffb281d822ceefb633311dc8ba4d7d",
+    
+    success: function(data){
+        console.log(data);
+        data.forEach(function(marker) {
+            // create a DOM element for the marker
+            var el = document.createElement('div');
+            el.id = 'marker';
+
+            // create the popup
+            var popup = new mapboxgl.Popup({ offset: 25 })
+        
+            .setHTML(`  <div id="popup">
+                            <h5 class="popupTitle">${marker.name}</h5> 
+                            <h6 class="popupSubtitle">${marker.address}</h6>
+                            <div class="row popupContent">
+                                <div class="col-6">
+                                    ${marker.available_bikes} <i class="fas fa-bicycle"></i>
                                 </div>
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#modalBooking">
-                                        Réserver
-                                    </button>
+                                <div class="col-6 text-right">
+                                    ${marker.status}
                                 </div>
                             </div>
-                        `);
-         
-                
-                // el.addEventListener('click', function() {
-                //     window.alert(marker.properties.message);
-                // });
-                
-                // add marker to map
-                new mapboxgl.Marker(el)
-                    .setLngLat(marker.position)
-                    .setPopup(popup)
-                    .addTo(map);
-            });
 
-            // if(data.error){
-            //     console.log("Erreur de connexion");
-            // }else{
-            //     // Afficher la map
-            //     $("#map").show();
-                
-            //     // Supprimer le formulaire
-            //     $("#form").hide();
-            // }
-        },
-        error: function(data){
-            console.error();
+                            <div class="text-center">
+                            <form onSubmit="formSubmitPopup(event)">
+                                <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
+                            </form>
+                            </div>
+                        </div>
+                    `);
+            
+            // el.addEventListener('click', function() {
+            //     window.alert(marker.properties.message);
+            // });
+            
+            // add marker to map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.position)
+                .setPopup(popup)
+                .addTo(map);
+        });
 
-        }
-        
-    })
-
-    $("#form").on("submit", function(event){
-        event.preventDefault();
-        
-        // Récupérer pseudo et password du form
-        var pseudo = $("input[name=pseudo]").val();
-        //console.log(pseudo);
-        
-        // Récupérer password
-        var password = $("input[name=password]").val();
-        //console.log(password);
-    
-        // Stocker dans un tableau les deux valeurs
-        var tabForm = [pseudo, password];
-        //console.log(tabForm);
-        
-        // Stocker dans un objet les deux valeurs
-        var objForm = { 
-            Pseudo : pseudo,
-            Password : password
-         }
-         //console.log(objForm);
-         //console.log(objForm.Pseudo) // Select attribut pseudo
-    
-         serializeForm = $(this).serialize();
-        //  console.log(serializeForm);
-    
-         
-         $.ajax({
-             type: "GET",
-             //dataType: "JSON",
-             url: "script.php",
-             data: serializeForm,
-             success: function(data){
-                 console.log(data);
-                 data = JSON.parse(data)
-                 if(data.error){
-                     console.log("Erreur de connexion");
-                 }else{
-                     // Afficher la map
-                     $("#map").show();
-                     // Supprimer le formulaire
-                     $("#form").hide();
-                 }
-             },
-             error: function(data){
-                 console.error();
-    
-             }
-             
-         })
-    
-    });
-
+    },
+    error: function(data){
+        console.error();
+    }
 });
+
+function formSubmitPopup(event){
+    event.preventDefault();
+    // AJAX request
+    $.ajax({
+        type: "POST",
+        url: `${urlAPI}/index.php`,
+        data: "test",
+        success: function(data){
+            console.log(data);
+        }
+    });
+}
+
+

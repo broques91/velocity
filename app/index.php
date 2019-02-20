@@ -183,8 +183,7 @@
     <!-- Overlay -->
     <div class="overlay"></div>
 
-
-    <!-- Scripts -->
+    <!-------------------------------- Scripts ------------------------------------>
      <!-- jQuery -->
     <script src="src/assets/js/jquery-3.3.1.min.js"></script>
     <!-- BX Slider -->
@@ -198,71 +197,6 @@
     <!-- Mapbox -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
     <!-- Custom JS -->
-    <script src="src/assets/js/app.js"></script>
-
-    <script type="text/javascript">
-        // Sidebar
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#dismiss, .overlay').on('click', function () {
-                // hide sidebar
-                $('#sidebar').removeClass('active');
-                // hide overlay
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                // open sidebar
-                $('#sidebar').addClass('active');
-                // fade in the overlay
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-
-        // //création de la map
-        // var mulhouse = [47.7467, 7.338928];
-        // var map = L.map('map').setView(mulhouse, 6);
-        // //création du calque d'image
-        // L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-        //     maxZoom: 20
-        // }).addTo(map);
-
-        // //ajout d'un marqueur
-        // var marker = L.marker(mulhouse).addTo(map);
-        // //ajout d'un popup
-        // marker.bindPopup('<h3> Mulhouse, France </h3>');
-
-        // var url = 'https://api.jcdecaux.com/vls/v1/stations?contract=Mulhouse&apiKey=18125dec00ffb281d822ceefb633311dc8ba4d7d';
-        //     //console.log(url)
-            
-        //     var params = {
-        //         url : url,
-        //         method : "GET"
-        //     };
-
-        //     $.ajax(params).done(function(response){
-        //         console.log(response);
-        //         console.log(response[0]['address']);
-
-
-
-        //         //var markers = [];
-        //         //forEach(function(response){
-        //         //    var marker = new L.marker(response['position']).addTo(map);
-        //         //})
-
-        //     })
-        //     .fail(function(){
-        //         console.error('Error');
-        //     })
-            
-
-        
-    </script>
+    <script src="dist/assets/js/app.min.js"></script>
 </body>
 </html>

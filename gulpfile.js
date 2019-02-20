@@ -33,7 +33,7 @@ gulp.task('minify', function () {
 
 
 // Tâche "build"
-gulp.task('build', ['sass']);
+gulp.task('build', ['sass', 'uglify']);
 
 // Tâche "prod" = Build + minify
 gulp.task('prod', ['build',  'minify']);
@@ -45,6 +45,7 @@ gulp.task('default', ['build']);
 // Tâche "watch" = je surveille *scss
 gulp.task('watch', function () {
     gulp.watch(source + '/assets/sass/*.scss', ['build']);
+    gulp.watch(source + '/assets/js/*.js', ['build']);
 });
 
   gulp.task('serve', ['sass'], function() {
