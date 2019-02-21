@@ -3,26 +3,6 @@
 
     require('database.php');
 
-    // $user = [];
-
-    // // Connect to database
-    // // fetch user in database with SQL request
-
-    // if( $_POST["username"] == "admin" && $_POST["password"] == "admin" ){
-
-    //     // echo "Success login";
-        
-    //     // Objet
-    //     // var user = {
-    //     //     username: "admin",
-    //     // }
-    //     $user = [
-    //         "username" => "admin"
-    //     ];
-    // }
-
-    // echo json_encode($user);
-
     if(isset($_POST['username']) && isset($_POST['password'])){
         
         $req = $db->prepare('SELECT * FROM users WHERE username = :username AND password = :password LIMIT 1');
@@ -38,8 +18,9 @@
             session_start();
             $username = $_POST["username"];
             $password = $_POST["password"];
-            $return_arr[] = array("username" => $username,
-            "password" => $password);
+            $return_arr[] = array(
+                "username" => $username,
+                "password" => $password);
             echo json_encode($return_arr);
         }
     }else{

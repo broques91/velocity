@@ -75,72 +75,7 @@
                             </button>
                             <?php include('inc/modules/modals/modal-login.php'); ?>
                         </p>
-                        <!---------- SignupModal ------------>
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form class="my-3" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                                            <!-- First Name / Last Name -->
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <input type="text" name="signin-firstname" class="form-control" placeholder="First Name" <?php if( isset($_POST['signin-firstname'])){ echo ('value = "'.$_POST['signin-firstname'].'" ');}  ?>>
-                                                    <?php if (isset($nameErr)){
-                                                        ?> <p class="error"> <?php echo ($name); ?> </p> <?php
-                                                    } ?>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <input type="text" name="signin-lastname" class="form-control" placeholder="Last Name" <?php if( isset($_POST['signin-lastname'])){ echo ('value = "'.$_POST['signin-lastname'].'" ');}  ?>>
-                                                    <?php if (isset($surnameErr)){
-                                                        ?> <p class="error"> <?php echo ($surname); ?> </p> <?php
-                                                    } ?>
-                                                </div>
-                                            </div>
-                                            <!-- Email -->
-                                            <div class="form-group">
-                                                <input type="email" required name="signin-email" class="form-control" placeholder="Email adress" <?php if( isset($_POST['signin-email'])){ echo ('value = "'.$_POST['signin-email'].'" ');}  ?>>
-                                                <?php if (isset($emailErr)){
-                                                    ?> <p class="error"> <?php echo ($email); ?> </p> <?php
-                                                } ?>
-                                            </div>
-                                            <!-- Password -->
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <input type="password" required name="signin-password" class="form-control" placeholder="Password">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <input type="password" required name="signin-passwordconfirm" class="form-control" placeholder="Confirm password">
-                                                </div>
-                                            
-                                            </div>
-                                            <!-- Avatar -->
-                                            <div class="custom-file">
-                                                <input type="file" name="signin-avatar" class="custom-file-input" id="customFile">
-                                                <label class="custom-file-label" for="customFile">Choose picture</label>
-                                            </div>
-                                            <div class="form-group my-2 text-left">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                                    <label class="form-check-label" for="invalidCheck">
-                                                        Agree to terms and conditions
-                                                    </label>
-                                                    <div class="invalid-feedback">
-                                                        You must agree before submitting.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="submit" name="submit-signin" value="Sign In" class="btn btn-primary btn-block">
-                                        </form>     
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php include('inc/modules/modals/modal-signup.php'); ?>
                     </p>
                 </div>
             </section>

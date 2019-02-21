@@ -25,7 +25,7 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/streets-v11',
 center: [4.8320114, 45.7578137],
-zoom: 12
+zoom: 15
 });
 
 var urlAPI = 'http://localhost/projects/velocity/api';
