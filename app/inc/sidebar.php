@@ -4,7 +4,7 @@
             <i class="fas fa-arrow-left"></i>
         </div>
 
-        <div class="sidebar-header">
+        <div class="sidebar-header bg-danger">
             <h3>Hello</h3>
         </div>
 

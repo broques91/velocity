@@ -61,61 +61,45 @@
             </div>
 
             <!-- Landing Content -->
-            <section id="landing">    
-                <div class="jumbotron text-center">
-                    <h2 class="display-4">Dur de se garer ? Prenez le vélo !</h2>
-                    <p class="lead">Disponible 24h/24 et 7j/7</p>
-                    
-                    <hr class="my-4">
-                    <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">S'inscrire</a>
-                        <p>
-                            Déja inscrit ? <button type="button" class="btn btn-lg btn-link p-0" data-toggle="modal" data-target="#loginModal">
-                            Connectez-vous
-                            </button>
-                            <?php include('inc/modules/modals/modal-login.php'); ?>
-                        </p>
-                        <?php include('inc/modules/modals/modal-signup.php'); ?>
-                    </p>
-                </div>
+            <section id="logscreen" class="container-fluid h-100 d-flex flex-column">
+                <main class="row align-items-center flex-grow-1">
+                    <div class="col-sm-10 col-md-6 col-lg-3 mx-auto">
+                        <div class="jumbotron bg-transparent text-center mb-0">
+                        <h2 class="mb-3">Bienvenue !</h2>    
+                        <hr class="text-border">
+                        <!-- LOGIN FORM -->
+                        <form id="formLogin" class="my-3" action="api/checkUser.php" method="post">
+                            <div class="form-group">
+                                <input type="text" name="username" class="form-control" placeholder="Username">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" value="Login" class="btn btn-block btn-danger ">
+                            </div>
+                        </form>
+                        
+                        <div>
+                            <small>
+                                <span class="font-weight-light">Pas de compte ?</span> 
+                                <a class="font-weight-bold" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter"> S'inscrire</a> 
+                            </small>
+                        </div>
+                        <?php include('inc/modules/modals/modal-signup.php'); ?>               
+                        <hr class="text-border">
+                    </div>
+                </main>
+                <footer class="mt-auto fixed-bottom p-3 bg-dark">
+                    <span class=text-light>Mentions légales<span>
+                </footer>
             </section>
             
-            <!-- Logged Content -->
-            <section id="main">
-                <div class="container-fluid">
-                    <h2 class="text-center">Carte et stations</h2>
-                    <p class="text-center text-muted">Choisissez votre station sur la carte pour vérifier les disponibilités et réserver votre vélo.</p>
-                    
-                    <div id='map'></div>
+            <!-- MAP -->
+            <div id="map-container" class="container-fluid">    
+                <div id='map'></div>
+            </div>
                         
-                    <!-- Modal Booking -->
-                    <div class="modal fade" id="modalBooking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Info station</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                
-                <footer class="p-3 bg-dark">
-                    <p>mentions légales </p>
-                </footer>
-
-            </section>
-
         </div>
        
     </div>
