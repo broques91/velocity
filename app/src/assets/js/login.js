@@ -1,4 +1,4 @@
-var urlAPI = 'http://localhost:8888/projects/velocity/api';
+var urlAPI = 'http://localhost/projects/velocity/api';
 
 $('#formLogin').submit(function(event) {
     event.preventDefault();
@@ -11,11 +11,8 @@ $('#formLogin').submit(function(event) {
          url:  `${urlAPI}/checkUser.php`,
          data: serializeFormLogin,
          success: function(data){
-            console.log(data);
             data = JSON.parse(data);
-            console.log(data);
-            // $("#map").show();
-            if(data.username){
+            if(data[0].username){
                 $("#landing").hide();
                 $(".modal-backdrop").hide();
                 $("#map").show();
