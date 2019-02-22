@@ -3,13 +3,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+                <h5 class="modal-title text-dark" id="exampleModalLabel">Sign Up</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form class="my-3" action="../api/signUser.php" method="post">
+                <form id="formSignup" class="my-3" method="post">
                     <!-- First Name / Last Name -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -40,8 +40,8 @@
                         <input type="file" name="avatar" class="custom-file-input" id="customFile">
                         <label class="custom-file-label" for="customFile">Choose picture</label>
                     </div> -->
-                    <div class="form-group my-2 text-left">
-                        <div class="form-check">
+                    <div class="form-group my-2 text-left mb-3">
+                        <div class="form-check text-dark">
                             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                             <label class="form-check-label" for="invalidCheck">
                                 Agree to terms and conditions

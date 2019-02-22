@@ -10,7 +10,7 @@
             "username" => $_POST["username"],
             "password" => $_POST["password"]
         ));
-        $result =$req->fetch();
+        $result =$req->fetch(PDO::FETCH_ASSOC);
 
         if(!$result){
             echo "error";
