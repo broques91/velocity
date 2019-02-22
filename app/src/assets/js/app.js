@@ -58,16 +58,20 @@ $.ajax({
                             </div>
 
                             <div class="text-center">
-                            <form onSubmit="formSubmitPopup(event)">
-                                <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
-                            </form>
+                                <button id="open-popup1">Ouvrir la popup1</button>
                             </div>
                         </div>
                     `);
-            
+                    
+
+                    
             // el.addEventListener('click', function() {
             //     window.alert(marker.properties.message);
             // });
+
+            // <form onSubmit="formSubmitPopup(event)">
+            //     <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
+            // </form>
             
             // add marker to map
             new mapboxgl.Marker(el)

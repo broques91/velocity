@@ -12,9 +12,11 @@ $('#formSignup').submit(function(event) {
          data: serializeFormSignup,
          success: function(data){
             data = JSON.parse(data);
-                $("#landing").hide();
+                $("#test").hide();
                 $(".modal-backdrop").hide();
+                $(".navbar").show();
                 $("#map").show();
+                $("footer").show();
 
                 var mapDiv = $("#map");
                 var canvasMap = $(".mapboxgl-canvas");

@@ -144,8 +144,10 @@ a:focus {
 ----------------------------------------------------- */
 .navbar {
   position: fixed;
+  z-index: 998;
   top: 0;
   left: 0;
+  display: none;
   width: 100%;
 }
 
@@ -171,30 +173,16 @@ h1::first-letter {
   visibility: hidden;
 }
 
-.jumbotron {
-  height: 100vh;
-  padding-top: 300px;
-  color: white;
-  background-image: url('../../../src/assets/img/bg-landing.jpeg');
-  background-position: center bottom;
-  background-size: cover;
-}
-
-.display-4 {
-  color: white;
+#logscreen {
+  min-height: 100vh;
+  padding: 0;
+  background: linear-gradient(to right, #757f9a, #d7dde8);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 /* ---------------------------------------------------
     MAP STYLE
 ----------------------------------------------------- */
-#main {
-  min-height: 100vh;
-}
-
-#main .container-fluid {
-  padding-top: 100px;
-}
-
 #marker {
   width: 50px;
   height: 50px;
@@ -207,7 +195,7 @@ h1::first-letter {
 #map {
   display: none;
   width: 100%;
-  height: 600px;
+  height: 100vh;
 }
 
 #popup {
@@ -216,6 +204,7 @@ h1::first-letter {
 
 .popupTitle {
   font-size: 15px;
+  font-weight: 700;
   display: block;
   margin-bottom: 2px;
 }
@@ -238,6 +227,7 @@ h1::first-letter {
 ----------------------------------------------------- */
 footer {
   bottom: 0;
+  display: none;
   padding: 10px;
   text-align: center;
 }

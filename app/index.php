@@ -60,60 +60,43 @@
                 </div>
             </div>
 
-            <!-- Landing Content -->
-            <section id="landing">    
-                <div class="jumbotron text-center">
-                    <h2 class="display-4">Dur de se garer ? Prenez le vélo !</h2>
-                    <p class="lead">Disponible 24h/24 et 7j/7</p>
-                    
-                    <hr class="my-4">
-                    <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">S'inscrire</a>
-                        <p>
-                            Déja inscrit ? <button type="button" class="btn btn-lg btn-link p-0" data-toggle="modal" data-target="#loginModal">
-                            Connectez-vous
-                            </button>
-                            <?php include('inc/modules/modals/modal-login.php'); ?>
-                        </p>
-                        <?php include('inc/modules/modals/modal-signup.php'); ?>
-                    </p>
-                </div>
-            </section>
-            
-            <!-- Logged Content -->
-            <section id="main">
-                <div class="container-fluid">
-                    <h2 class="text-center">Carte et stations</h2>
-                    <p class="text-center text-muted">Choisissez votre station sur la carte pour vérifier les disponibilités et réserver votre vélo.</p>
-                    
+             <!-- Landing Content -->
+             <section id="logscreen" class="container-fluid h-100 d-flex flex-column">
+                <main class="row align-items-center flex-grow-1">
+                    <div id="test" class="col-sm-10 col-md-6 col-lg-3 mx-auto">
+                        <div class="jumbotron bg-transparent text-center mb-0">
+                            <h2 class="mb-3">Velocity</h2>    
+                            <hr class="text-border">
+                            <!-- LOGIN FORM -->
+                            <form id="formLogin" class="my-3" action="api/checkUser.php" method="post">
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="submit" value="Login" class="btn btn-block btn-danger ">
+                                </div>
+                            </form>
+                            <small>
+                                <span class="font-weight-light">Pas de compte ?</span> 
+                                <a class="font-weight-bold" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter"> S'inscrire</a>
+                                <?php include('inc/modules/modals/modal-signup.php'); ?>   
+                            </small>
+                            <hr class="text-border">
+                        </div>                    
+                    </div>  
+                </main>
+                <!-- MAP -->
+                <div id="map-container" class="container-fluid p-0">    
                     <div id='map'></div>
-                        
-                    <!-- Modal Booking -->
-                    <div class="modal fade" id="modalBooking" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Info station</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
                 </div>
-                
-                <footer class="p-3 bg-dark">
-                    <p>mentions légales </p>
-                </footer>
 
+                <!-- FOOTER -->
+                <footer class="mt-auto fixed-bottom p-3 bg-dark">
+                    <span class=text-light>Mentions légales<span>
+                </footer>
             </section>
 
         </div>
@@ -124,20 +107,7 @@
     <div class="overlay"></div>
 
     <!-------------------------------- Scripts ------------------------------------>
-     <!-- jQuery -->
-    <script src="dist/assets/js/jquery-3.3.1.min.js"></script>
-    <!-- BX Slider -->
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <!-- jQuery Custom Scroller CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-    <!-- Mapbox -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-    <!-- Custom JS -->
-    <script src="dist/assets/js/app.min.js"></script>
-
+    <?php include('inc/scripts.php'); ?>
+    
 </body>
 </html>

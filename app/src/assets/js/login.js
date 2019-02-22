@@ -13,9 +13,11 @@ $('#formLogin').submit(function(event) {
          success: function(data){
             data = JSON.parse(data);
             if(data[0].username){
-                $("#landing").hide();
+                $("#test").hide();
                 $(".modal-backdrop").hide();
+                $(".navbar").show();
                 $("#map").show();
+                $("footer").show();
 
                 var mapDiv = $("#map");
                 var canvasMap = $(".mapboxgl-canvas");
