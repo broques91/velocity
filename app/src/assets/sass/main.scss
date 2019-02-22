@@ -74,7 +74,7 @@ h1::first-letter {
     MAP STYLE
 ----------------------------------------------------- */
 #main{
-    height: 100vh;
+    min-height: 100vh;
     .container-fluid{
         padding-top: 100px;
     }
@@ -114,7 +114,6 @@ h1::first-letter {
      margin-bottom: 5px;
  }
  
-
 /* ---------------------------------------------------
     FOOTER
 ----------------------------------------------------- */
