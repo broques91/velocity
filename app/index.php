@@ -90,8 +90,10 @@
                 </main>
                 <!-- MAP -->
                 <div id="map-container" class="container-fluid p-0">    
-                    <div id='map'></div>
+                    <div id='map'></div> 
                 </div>
+
+                <?php include('inc/modules/modals/modal-reservation.php'); ?>   
 
                 <!-- FOOTER -->
                 <footer class="mt-auto fixed-bottom p-3 bg-dark">
@@ -105,7 +107,7 @@
     
     <!-- Overlay -->
     <div class="overlay"></div>
-
+    
     <!-------------------------------- Scripts ------------------------------------>
     <?php include('inc/scripts.php'); ?>
     

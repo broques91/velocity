@@ -3,8 +3,13 @@
 
     require('database.php');
 
-    if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username'])  && isset($_POST['password']) && isset($_POST['passwordconfirm'])){
+    // $message = "";
+    // $firstnameErr = "";
+    // $lastnameErr = "";
+    // $usernameErr = "";
 
+    if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username'])  && isset($_POST['password']) && isset($_POST['passwordconfirm'])){
+        
         $req = $db->prepare("INSERT INTO users (firstname, lastname, username, password, passwordconfirm) VALUES (:firstname, :lastname, :username, :password, :passwordconfirm)");
         
         try{
@@ -15,8 +20,8 @@
                 "password" => $_POST["password"],
                 "passwordconfirm" => $_POST["passwordconfirm"]
             ));
+            $_SESSION['username']= $_POST["username"];
 
-            session_start();
             $username = $_POST["username"];
             $password = $_POST["password"];
             $return_arr[] = array(
@@ -26,5 +31,5 @@
         }catch (Exception $e){
             echo "error";
         }
-
     }
+?>

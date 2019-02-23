@@ -5,12 +5,12 @@
 
     if(isset($_POST['username']) && isset($_POST['password'])){
         
-        $req = $db->prepare('SELECT * FROM users WHERE username = :username AND password = :password LIMIT 1');
-        $req->execute(array(
-            "username" => $_POST["username"],
-            "password" => $_POST["password"]
-        ));
-        $result =$req->fetch(PDO::FETCH_ASSOC);
+        $q = $db->prepare('SELECT * FROM users WHERE username = :username AND password = :password LIMIT 1');
+        $q->bindParam(":username", $_POST["username"]);
+        $q->bindParam(":password", $_POST["password"]);
+        $q->execute();
+
+        $result = $q->fetch(PDO::FETCH_ASSOC);
 
         if(!$result){
             echo "error";

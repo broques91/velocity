@@ -13,25 +13,25 @@
                     <!-- First Name / Last Name -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" name="firstname" class="form-control" placeholder="First Name">
+                            <input type="text" name="firstname" class="form-control" placeholder="First Name" required>
                            
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+                            <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
                             
                         </div>
                     </div>
                     <!-- Email -->
                     <div class="form-group">
-                        <input type="text" required name="username" class="form-control" placeholder="Username">
+                        <input type="text" required name="username" class="form-control" placeholder="Username" required>
                     </div>
                     <!-- Password -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="password" required name="password" class="form-control" placeholder="Password">
+                            <input type="password" required name="password" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="password" required name="passwordconfirm" class="form-control" placeholder="Confirm password">
+                            <input type="password" required name="passwordconfirm" class="form-control" placeholder="Confirm password" required>
                         </div>
                     
                     </div>
@@ -40,7 +40,7 @@
                         <input type="file" name="avatar" class="custom-file-input" id="customFile">
                         <label class="custom-file-label" for="customFile">Choose picture</label>
                     </div> -->
-                    <div class="form-group my-2 text-left mb-3">
+                    <!-- <div class="form-group my-2 text-left mb-3">
                         <div class="form-check text-dark">
                             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                             <label class="form-check-label" for="invalidCheck">
@@ -50,8 +50,10 @@
                                 You must agree before submitting.
                             </div>
                         </div>
-                    </div>
-                    <input type="submit" name="submitSignup" value="Sign In" class="btn btn-primary btn-block">
+                    </div> -->
+                    <div class="errorMsg"><?php echo $errorMessage; ?></div>
+                    <div class="sucessMsg"><?php echo $sucessMessage; ?></div>
+                    <input type="submit" name="signup-submit" value="Sign In" class="btn btn-primary btn-block">
                 </form>     
             </div>
         </div>

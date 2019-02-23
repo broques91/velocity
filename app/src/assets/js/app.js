@@ -58,7 +58,9 @@ $.ajax({
                             </div>
 
                             <div class="text-center">
-                                <button id="open-popup1">Ouvrir la popup1</button>
+                            <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#exampleModal2">
+                                Plus d'infos
+                            </button>
                             </div>
                         </div>
                     `);
