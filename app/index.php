@@ -81,7 +81,7 @@
                             </form>
                             <small>
                                 <span class="font-weight-light">Pas de compte ?</span> 
-                                <a class="font-weight-bold" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter"> S'inscrire</a>
+                                <a class="font-weight-bold" href="#" role="button" data-toggle="modal" data-target="#signupModal2"> S'inscrire</a>
                                 <?php include('inc/modules/modals/modal-signup.php'); ?>   
                             </small>
                             <hr class="text-border">

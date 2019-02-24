@@ -17,7 +17,7 @@ $('#formLogin').submit(function(event) {
                 $(".modal-backdrop").hide();
                 $(".navbar").show();
                 $("#map").show();
-                $("footer").show();
+                // $("footer").show();
 
                 var mapDiv = $("#map");
                 var canvasMap = $(".mapboxgl-canvas");

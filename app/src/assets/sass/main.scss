@@ -1,7 +1,6 @@
 /* ---------------------------------------------------
     GENERAL STYLE
 ----------------------------------------------------- */
-
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -17,6 +16,11 @@ p {
     color: #999;
 }
 
+.row{
+    margin: 0;
+    padding: 0;
+}
+
 a,
 a:hover,
 a:focus {
@@ -24,6 +28,20 @@ a:focus {
     text-decoration: none;
     transition: all 0.3s;
 }
+
+/* ---------------------------------------------------
+    MODAL STYLE
+----------------------------------------------------- */
+.modal-dialog-slideout {min-height: 100%; margin: 0 0 0 auto;background: #fff;}
+.modal.fade .modal-dialog.modal-dialog-slideout {-webkit-transform: translate(100%,0)scale(1);transform: translate(100%,0)scale(1);}
+.modal.fade.show .modal-dialog.modal-dialog-slideout {-webkit-transform: translate(0,0);transform: translate(0,0);display: flex;align-items: stretch;-webkit-box-align: stretch;height: 100%;}
+.modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body{overflow-y: auto;overflow-x: hidden;}
+.modal-dialog-slideout .modal-content{border: 0;}
+.modal-dialog-slideout .modal-header, .modal-dialog-slideout .modal-footer {height: 69px;} 
+.modal-dialog-slideout .modal-header {position:relative;}
+.modal-dialog-slideout .modal-header .close {position:absolute;}
+.modal-dialog-slideout .modal-header h5 {margin: 0 auto;}
+.modal-dialog-slideout .modal-footer {display:block;}
 
 /* ---------------------------------------------------
     NAVBAR STYLE
@@ -40,7 +58,6 @@ a:focus {
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
-
 #content {
     width: 100%;
     padding: 0;
@@ -68,7 +85,6 @@ h1::first-letter {
 /* ---------------------------------------------------
     MAP STYLE
 ----------------------------------------------------- */
-
 #marker {
     background-image: url('../../../src/assets/img/marker.png');
     background-size: cover;
@@ -77,7 +93,6 @@ h1::first-letter {
     border-radius: 50%;
     cursor: pointer;
     }
-
 
 #map {
     display: none;
@@ -106,7 +121,7 @@ h1::first-letter {
  }
  
 /* ---------------------------------------------------
-    FOOTER
+    FOOTER STYLE
 ----------------------------------------------------- */
 footer{
     bottom: 0;
@@ -116,10 +131,3 @@ footer{
 }
 
 
-.modal-dialog-slideout {min-height: 100%; margin: 0 0 0 auto;background: #fff;}
-.modal.fade .modal-dialog.modal-dialog-slideout {-webkit-transform: translate(100%,0)scale(1);transform: translate(100%,0)scale(1);}
-.modal.fade.show .modal-dialog.modal-dialog-slideout {-webkit-transform: translate(0,0);transform: translate(0,0);display: flex;align-items: stretch;-webkit-box-align: stretch;height: 100%;}
-.modal.fade.show .modal-dialog.modal-dialog-slideout .modal-body{overflow-y: auto;overflow-x: hidden;}
-.modal-dialog-slideout .modal-content{border: 0;}
-.modal-dialog-slideout .modal-header, .modal-dialog-slideout .modal-footer {height: 69px; display: block;} 
-.modal-dialog-slideout .modal-header h5 {float:left;}

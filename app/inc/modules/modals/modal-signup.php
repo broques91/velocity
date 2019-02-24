@@ -1,36 +1,41 @@
-<!---------- SignupModal ------------>
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+<div class="modal fade" id="signupModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-slideout" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-dark" id="exampleModalLabel">Sign Up</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form id="formSignup" class="my-3" method="post">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Inscription</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fas fa-arrow-left"></i></span>
+            </button>
+        </div>
+        <div class="modal-body">
+        <form id="formSignup" class="my-3 text-left" method="post">
                     <!-- First Name / Last Name -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="text" name="firstname" class="form-control" placeholder="First Name" required>
-                           
+                        <label for="">Prénom</label>
+                            <input type="text" name="firstname" class="form-control" placeholder="First Name" required>        
                         </div>
                         <div class="form-group col-md-6">
+                        <label for=""> Nom</label>
                             <input type="text" name="lastname" class="form-control" placeholder="Last Name" required>
                             
                         </div>
                     </div>
                     <!-- Email -->
                     <div class="form-group">
+                    <label for="">Pseudo</label>
                         <input type="text" required name="username" class="form-control" placeholder="Username" required>
                     </div>
                     <!-- Password -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
+                            <label for="">Mot de passe</label>
                             <input type="password" required name="password" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="form-group col-md-6">
+                            <label for="">Confirmation mot de passe</label>
                             <input type="password" required name="passwordconfirm" class="form-control" placeholder="Confirm password" required>
                         </div>
                     
@@ -53,9 +58,11 @@
                     </div> -->
                     <div class="errorMsg"><?php echo $errorMessage; ?></div>
                     <div class="sucessMsg"><?php echo $sucessMessage; ?></div>
-                    <input type="submit" name="signup-submit" value="Sign In" class="btn btn-primary btn-block">
+                    <hr>
+                    <input type="submit" name="signup-submit" value="Créer votre compte" class="btn btn-danger btn-block">
+                    
                 </form>     
-            </div>
+        </div>
         </div>
     </div>
 </div>
