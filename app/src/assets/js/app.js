@@ -44,8 +44,27 @@ $.ajax({
 
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25 })
-        
-            .setHTML(`  <div id="popup">
+
+                    
+            el.addEventListener('click', function() {
+                $('#exampleModal2').modal('show');
+                $("#station_name").text(marker.name);
+                $("#station_adress").text(marker.address);
+                $("#status").text(marker.status);
+                $("#veloDispo").text(marker.available_bikes);
+                $("#placeDispo").text(marker.available_bike_stands);
+                $("#paiementDispo").text(marker.banking);
+
+            });
+
+            // <form onSubmit="formSubmitPopup(event)">
+            //     <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
+            // </form>
+            
+            // add marker to map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.position)
+                .setHTML(`  <div id="popup">
                             <h5 class="popupTitle">${marker.name}</h5> 
                             <h6 class="popupSubtitle">${marker.address}</h6>
                             <div class="row popupContent">
@@ -63,22 +82,8 @@ $.ajax({
                             </button>
                             </div>
                         </div>
-                    `);
-                    
-
-                    
-            // el.addEventListener('click', function() {
-            //     window.alert(marker.properties.message);
-            // });
-
-            // <form onSubmit="formSubmitPopup(event)">
-            //     <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
-            // </form>
-            
-            // add marker to map
-            new mapboxgl.Marker(el)
-                .setLngLat(marker.position)
-                .setPopup(popup)
+                `)
+                // .setPopup(popup)
                 .addTo(map);
         });
 

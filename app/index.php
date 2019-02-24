@@ -30,32 +30,7 @@
             <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
-                    <div class="card-deck">
-                        <div class="card">
-                            <img src="http://via.placeholder.com/250x200" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Etape 1</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="http://via.placeholder.com/250x200" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Etape 2</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="http://via.placeholder.com/250x200" class="card-img-top" alt="...">
-                            <div class="card-body">
-                            <h5 class="card-title">Etape 3</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            
-                            </div>
-                        </div>
-                        </div>
+                        Infos
                     </div>
                 </div>
             </div>
@@ -96,8 +71,8 @@
                 <?php include('inc/modules/modals/modal-reservation.php'); ?>   
 
                 <!-- FOOTER -->
-                <footer class="mt-auto fixed-bottom p-3 bg-dark">
-                    <span class=text-light>Mentions légales<span>
+                <footer class="mt-auto fixed-bottom p-3 bg-light">
+                    <span>Réservation<span>
                 </footer>
             </section>
 
