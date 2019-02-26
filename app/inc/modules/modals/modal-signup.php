@@ -56,8 +56,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="errorMsg"><?php echo $errorMessage; ?></div>
-                    <div class="sucessMsg"><?php echo $sucessMessage; ?></div>
+                  
                     <hr>
                     <input type="submit" name="signup-submit" value="Créer votre compte" class="btn btn-danger btn-block">
                     

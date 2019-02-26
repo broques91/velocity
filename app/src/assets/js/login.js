@@ -12,7 +12,11 @@ $('#formLogin').submit(function(event) {
          data: serializeFormLogin,
          success: function(data){
             data = JSON.parse(data);
-            if(data[0].username){
+
+            user = data;
+            console.log(user);
+            
+            if(data.username){
                 $("#test").hide();
                 $(".modal-backdrop").hide();
                 $(".navbar").show();

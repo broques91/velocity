@@ -1,3 +1,5 @@
+var user;
+
 // Sidebar
  $("#sidebar").mCustomScrollbar({
     theme: "minimal"
@@ -37,10 +39,21 @@ $.ajax({
     
     success: function(data){
         console.log(data);
+
         data.forEach(function(marker) {
             // create a DOM element for the marker
             var el = document.createElement('div');
             el.id = 'marker';
+
+            Station = {
+                stationId: marker.number,
+                stationName: marker.name,
+                stationAddress: marker.address,
+                stationStatut: marker.status,
+                stationPlaces: marker.available_bike_stands,
+                stationBikes: marker.available_bike
+            }
+
 
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25 })
@@ -54,37 +67,35 @@ $.ajax({
                 $("#veloDispo").text(marker.available_bikes);
                 $("#placeDispo").text(marker.available_bike_stands);
                 $("#paiementDispo").text(marker.banking);
+                $("#getidStation").text(marker.number);
 
+                $('#formReservation').submit(function(event){
+                    event.preventDefault();
+                    console.log(marker.number);
+                    console.log(user.id);
+                    // AJAX request
+                    $.ajax({
+                        type: "POST",
+                        url: `${urlAPI}/setReservation.php`,
+                        data: Station,
+                        success: function(data){
+                            // console.log(data);
+                        }
+                    });
+                });
             });
 
-            // <form onSubmit="formSubmitPopup(event)">
+
+            // <form onSubmit="formSubmitPopup(event, $(marker.number), ${id_user})">
             //     <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
             // </form>
             
             // add marker to map
             new mapboxgl.Marker(el)
                 .setLngLat(marker.position)
-                // .setHTML(`  <div id="popup">
-                //             <h5 class="popupTitle">${marker.name}</h5> 
-                //             <h6 class="popupSubtitle">${marker.address}</h6>
-                //             <div class="row popupContent">
-                //                 <div class="col-6">
-                //                     ${marker.available_bikes} <i class="fas fa-bicycle"></i>
-                //                 </div>
-                //                 <div class="col-6 text-right">
-                //                     ${marker.status}
-                //                 </div>
-                //             </div>
-
-                //             <div class="text-center">
-                //             <button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#exampleModal2">
-                //                 Plus d'infos
-                //             </button>
-                //             </div>
-                //         </div>
-                // `)
-                // .setPopup(popup)
                 .addTo(map);
+
+            
         });
 
     },
@@ -94,17 +105,7 @@ $.ajax({
 });
 
 
-function formSubmitPopup(event){
-    event.preventDefault();
-    // AJAX request
-    $.ajax({
-        type: "POST",
-        url: `${urlAPI}/test.php`,
-        data: "test",
-        success: function(data){
-            console.log(data);
-        }
-    });
-}
+
+
 
 

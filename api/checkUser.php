@@ -10,18 +10,12 @@
         $q->bindParam(":password", $_POST["password"]);
         $q->execute();
 
-        $result = $q->fetch(PDO::FETCH_ASSOC);
+        $data = $q->fetch(PDO::FETCH_ASSOC);
 
-        if(!$result){
-            echo "error";
+        if( $data ){
+            echo json_encode($data);
         }else{
-            session_start();
-            $username = $_POST["username"];
-            $password = $_POST["password"];
-            $return_arr[] = array(
-                "username" => $username,
-                "password" => $password);
-            echo json_encode($return_arr);
+            echo json_encode( [] );
         }
     }else{
         echo "Veuillez saisir tous les champs";
