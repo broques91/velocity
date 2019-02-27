@@ -71,8 +71,8 @@
                 <?php include('inc/modules/modals/modal-reservation.php'); ?>   
 
                 <!-- FOOTER -->
-                <footer class="mt-auto fixed-bottom p-3 bg-light">
-                    <span>Réservation<span>
+                <footer class="mt-auto fixed-bottom p-4 bg-light">
+                    <span>Réservation en cours<span>
                 </footer>
             </section>
 

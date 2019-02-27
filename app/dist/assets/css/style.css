@@ -286,6 +286,7 @@ h1::first-letter {
     FOOTER STYLE
 ----------------------------------------------------- */
 footer {
+  z-index: 9999;
   bottom: 0;
   display: none;
   padding: 5px;

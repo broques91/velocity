@@ -38,7 +38,7 @@ $.ajax({
     url: "https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=18125dec00ffb281d822ceefb633311dc8ba4d7d",
     
     success: function(data){
-        console.log(data);
+        
 
         data.forEach(function(marker) {
             // create a DOM element for the marker
@@ -51,52 +51,52 @@ $.ajax({
                 stationAddress: marker.address,
                 stationStatut: marker.status,
                 stationPlaces: marker.available_bike_stands,
-                stationBikes: marker.available_bikes
+                stationBikes: marker.available_bikes,
+                stationPayment: marker.banking
             }
 
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25 })
                     
-            el.addEventListener('click', function() {
+            $(el).click(function(){
+            // el.addEventListener('click', function() {
                 $('#exampleModal2').modal('show');
-                $("#station_name").text(marker.name);
-                $("#station_adress").text(marker.address);
-                $("#status").text(marker.status);
-                $("#veloDispo").text(marker.available_bikes);
-                $("#placeDispo").text(marker.available_bike_stands);
-                $("#paiementDispo").text(marker.banking);
-                $("#getidStation").text(marker.number);
+                $("#station_name").html(station.stationName);
+                $("#station_adress").html(station.stationAddress);
+                $("#status").html(station.stationStatut);
+                $("#veloDispo").html(station.stationBikes);
+                $("#placeDispo").html(station.stationPlaces);
+                $("#paiementDispo").html(station.stationPayment);
 
                 $('#formReservation').submit(function(event){
                     event.preventDefault();
 
                     console.log(marker.number);
                     console.log(user.id);
-                    console.log(station);   
-                    var idStation = JSON.stringify(marker.number);
-                    console.log(idStation);
+                    console.log(station);  
+
+                    if(station.stationBikes > 0){
+                        // AJAX request
+                        $.ajax({
+                            type: "POST",
+                            url: `${urlAPI}/setReservation.php`,
+                            data: 'stationId='+station.stationId+'&userId='+user.id+'&nb_bikes='+station.stationBikes,
+                            success: function(response){
+                                // console.log(response);
+                                station.stationBikes--;
+                                station.stationPlaces++;
+                                // console.log(station.stationBikes);
+                                $('#veloDispo').html(station.stationBikes);
+                                $('#placeDispo').html(station.stationPlaces);
+                                $("footer").show()
+                            }
+                        });
+                    }else{
+                        alert('Réservation impossible ! Aucun vélo disponible')
+                    }
                     
-                    // AJAX request
-                    $.ajax({
-                        type: "POST",
-                        url: `${urlAPI}/setReservation.php`,
-                        data: 'stationId='+station.stationId+'&userId='+user.id+'&nb_bikes='+station.stationBikes,
-                        success: function(response){
-                            console.log(response);
-                            station.stationBikes--;
-                            station.stationPlaces++;
-                            console.log(station.stationBikes);
-                            $('#veloDispo').html(station.stationBikes);
-                            $('#placeDispo').html(station.stationPlaces);
-                        }
-                    });
                 });
             });
-
-
-            // <form onSubmit="formSubmitPopup(event, $(marker.number), ${id_user})">
-            //     <input class="btn btn-sm btn-light" type="submit" value="RESERVER">
-            // </form>
             
             // add marker to map
             new mapboxgl.Marker(el)
@@ -110,9 +110,6 @@ $.ajax({
         console.error();
     }
 });
-
-
-
 
 
 

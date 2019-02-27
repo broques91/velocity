@@ -18,7 +18,6 @@
                     <li><i class="mr-3 fas fa-bicycle"></i>Vélos disponibles : <span id="veloDispo"></span> </li>
                     <li><i class="mr-3 fas fa-parking"></i>Places disponibles : <span id="placeDispo"></span></li>
                     <li><i class="mr-3 far fa-credit-card"></i><span id="paiementDispo"></span></li></li>
-                    <li>Station_id : <span id="getidStation"></span></li></li>
                     
                 </ul>
                 <form id="formReservation" class="my-3" action="" method="post">
@@ -27,12 +26,6 @@
                         </div>
                         <div class="form-group">
                             <input type="text" name="lastname" class="form-control" placeholder="Nom">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="idStation" class="form-control" placeholder="idStation" value="" >
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="nbVelo" class="form-control" placeholder="Velos">
                         </div>
                         <div class=-modal-footer>
                             <div class="form-group">
