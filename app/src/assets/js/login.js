@@ -14,7 +14,7 @@ $('#formLogin').submit(function(event) {
             data = JSON.parse(data);
 
             user = data;
-            console.log(user);
+            // console.log(user);
             
             if(data.username){
                 $("#test").hide();

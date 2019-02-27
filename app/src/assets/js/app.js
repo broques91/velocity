@@ -45,15 +45,16 @@ $.ajax({
             var el = document.createElement('div');
             el.id = 'marker';
 
-            Station = {
+            var station = {
                 stationId: marker.number,
                 stationName: marker.name,
                 stationAddress: marker.address,
                 stationStatut: marker.status,
                 stationPlaces: marker.available_bike_stands,
-                stationBikes: marker.available_bike
+                stationBikes: marker.available_bikes
             }
 
+           
 
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25 })
@@ -73,13 +74,19 @@ $.ajax({
                     event.preventDefault();
                     console.log(marker.number);
                     console.log(user.id);
+                    // var dataStation = JSON.parse(station);
+                    // console.log(texteStation);
+                    console.log(station);   
+                    
+                    
                     // AJAX request
                     $.ajax({
                         type: "POST",
                         url: `${urlAPI}/setReservation.php`,
-                        data: Station,
+                        data: marker,
                         success: function(data){
-                            // console.log(data);
+                            data = JSON.parse(data);
+                            console.log(data);
                         }
                     });
                 });
@@ -94,7 +101,6 @@ $.ajax({
             new mapboxgl.Marker(el)
                 .setLngLat(marker.position)
                 .addTo(map);
-
             
         });
 
