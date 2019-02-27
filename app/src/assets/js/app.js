@@ -54,11 +54,8 @@ $.ajax({
                 stationBikes: marker.available_bikes
             }
 
-           
-
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25 })
-
                     
             el.addEventListener('click', function() {
                 $('#exampleModal2').modal('show');
@@ -72,21 +69,25 @@ $.ajax({
 
                 $('#formReservation').submit(function(event){
                     event.preventDefault();
+
                     console.log(marker.number);
                     console.log(user.id);
-                    // var dataStation = JSON.parse(station);
-                    // console.log(texteStation);
                     console.log(station);   
-                    
+                    var idStation = JSON.stringify(marker.number);
+                    console.log(idStation);
                     
                     // AJAX request
                     $.ajax({
                         type: "POST",
                         url: `${urlAPI}/setReservation.php`,
-                        data: marker,
-                        success: function(data){
-                            data = JSON.parse(data);
-                            console.log(data);
+                        data: 'stationId='+station.stationId+'&userId='+user.id+'&nb_bikes='+station.stationBikes,
+                        success: function(response){
+                            console.log(response);
+                            station.stationBikes--;
+                            station.stationPlaces++;
+                            console.log(station.stationBikes);
+                            $('#veloDispo').html(station.stationBikes);
+                            $('#placeDispo').html(station.stationPlaces);
                         }
                     });
                 });

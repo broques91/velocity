@@ -2,24 +2,20 @@
     header('Access-Control-Allow-Origin: *');
 
     require('database.php');
+    global $db;
 
-    var_dump(json_decode($station));
-    var_dump(json_decode($station, true));
-
-
-
-
-    // if(isset($_POST['firstname']) && isset($_POST['lastname'])){
-
-    //     // $array = json_decode(Station, true);
-    //     $req = $db->prepare("INSERT INTO users (id_station,nb_bikes) VALUES ()");
-    //     // foreach($array as $row){
-    //     //     $req = $db->prepare("INSERT INTO reservations (id_station, nb_bikes) VALUES ('". $row["number"] ."', '".$row["available_bikes"]."')");
-    //     //     $db->exec($req);
-    //     // }
-
-        
-        
-       
-
-    // }
+     if(isset($_POST['stationId']) && isset($_POST['userId']) && isset($_POST['nb_bikes']) ){
+        $id_station = $_POST['stationId'];
+        $id_user = $_POST['userId'];
+        $nb_bikes = $_POST['nb_bikes'];
+         $data = [
+            'id_station' => $id_station,
+            'id_user' => $id_user,
+            'nb_bikes' => $nb_bikes
+        ];
+         $sql = "INSERT INTO reservations (id_station, id_user, nb_bikes) VALUES (:id_station, :id_user, :nb_bikes)";
+     if( $db->prepare($sql)->execute($data)){
+         echo 'OK';
+     }
+     
+    }

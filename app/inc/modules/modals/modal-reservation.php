@@ -29,7 +29,7 @@
                             <input type="text" name="lastname" class="form-control" placeholder="Nom">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="idStation" class="form-control" placeholder="idStation">
+                            <input type="text" name="idStation" class="form-control" placeholder="idStation" value="" >
                         </div>
                         <div class="form-group">
                             <input type="text" name="nbVelo" class="form-control" placeholder="Velos">
