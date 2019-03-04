@@ -4,6 +4,8 @@
     require('database.php');
     global $db;
 
+    // $nbVelo = $_POST['nb_bikes']
+
     if(isset($_POST['stationId']) && isset($_POST['userId']) && isset($_POST['nb_bikes']) ){
         $id_station = $_POST['stationId'];
         $id_user = $_POST['userId'];

@@ -39,12 +39,11 @@ $.ajax({
     
     success: function(data){
         
-
         data.forEach(function(marker) {
             // create a DOM element for the marker
             var el = document.createElement('div');
             el.id = 'marker';
-
+            $(el).attr('data-id', marker.number);
             var station = {
                 stationId: marker.number,
                 stationName: marker.name,
@@ -55,52 +54,60 @@ $.ajax({
                 stationPayment: marker.banking
             }
 
+            if(marker.status === 'OPEN'){
+                $('.test').css('color', 'green');
+              }else{
+                $('.test').css('color', 'red');
+            }
+
+            
             // create the popup
-            var popup = new mapboxgl.Popup({ offset: 25 })
-                    
-            $(el).click(function(){
-            // el.addEventListener('click', function() {
-                $('#exampleModal2').modal('show');
-                $("#station_name").html(station.stationName);
-                $("#station_adress").html(station.stationAddress);
-                $("#status").html(station.stationStatut);
-                $("#veloDispo").html(station.stationBikes);
-                $("#placeDispo").html(station.stationPlaces);
-                $("#paiementDispo").html(station.stationPayment);
+            var popup = new mapboxgl.Popup({ offset: 25,}).setHTML(`
+            <div>
+                <div >
+                    <div >
+                        <div>
+                            <h5 class="modal-title" id="exampleModalLabel-${marker.number}">Info Stations</h5>
+                        </div>
+                        <div >
+                            <!-- <div class="mb-3 text-center">
+                                <img src="src/assets/img/velo.png" width="300">
+                            </div> -->
+                            <h3 id="station_name" class="mt-3">${marker.name}</h3>
+                            <i class="mr-2 mb-3 fas fa-map-marker-alt"></i><small id="station_adress-${marker.number}" class="text-muted"/>${marker.address}</small>
+                            <ul>
+                                <li><i class="mr-3 fas fa-sort"></i>Etat : <span class="test" id="status-${marker.number}">${marker.status}</span> </li>
+                                <li><i class="mr-3 fas fa-bicycle"></i>Vélos disponibles : <span id="veloDispo-${marker.number}">${marker.available_bikes}</span> </li>
+                                <li><i class="mr-3 fas fa-parking"></i>Places disponibles : <span id="placeDispo-${marker.number}">${marker.available_bike_stands}</span></li>
+                                <li><i class="mr-3 far fa-credit-card"></i><span id="paiementDispo-${marker.number}"></span>${marker.banking}</li></li>
+                                
+                            </ul>
+                            <form id="formReservation-${marker.number}" class="my-3" action="" onsubmit="reservationVelo(${marker.available_bikes}, ${marker.number});"  method="post" data-quantite="${marker.available_bikes}" data-id="${marker.number}">
+                                    <div class="form-group">
+                                        <input type="text" name="firstname" class="form-control" placeholder="Prénom">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="lastname" class="form-control" placeholder="Nom">
+                                    </div>
+                                    <div class=-modal-footer>
+                                        <div class="form-group">
+                                            <input type="submit"  name="submitReservation" value="Reserver" class="btn btn-block btn-danger ">
+                                        </div>
+                                    </div>
+                            </form>
 
-                $('#formReservation').submit(function(event){
-                    event.preventDefault();
-
-                    console.log(marker.number);
-                    console.log(user.id);
-                    console.log(station);  
-
-                    if(station.stationBikes > 0){
-                        // AJAX request
-                        $.ajax({
-                            type: "POST",
-                            url: `${urlAPI}/setReservation.php`,
-                            data: 'stationId='+station.stationId+'&userId='+user.id+'&nb_bikes='+station.stationBikes,
-                            success: function(response){
-                                // console.log(response);
-                                station.stationBikes--;
-                                station.stationPlaces++;
-                                // console.log(station.stationBikes);
-                                $('#veloDispo').html(station.stationBikes);
-                                $('#placeDispo').html(station.stationPlaces);
-                                $("footer").show()
-                            }
-                        });
-                    }else{
-                        alert('Réservation impossible ! Aucun vélo disponible')
-                    }
-                    
-                });
-            });
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            `);
+            // $(el).off('click');
             
             // add marker to map
             new mapboxgl.Marker(el)
                 .setLngLat(marker.position)
+                .setPopup(popup)
                 .addTo(map);
             
         });
@@ -111,5 +118,46 @@ $.ajax({
     }
 });
 
+function reservationVelo(i, j){
+        event.preventDefault();
+
+        // console.log(user.id);
+        quantite = i;
+        formId = j;
+        console.log(quantite);
+
+       
 
 
+            // AJAX request
+            $.ajax({
+                type: "POST",
+                url: `${urlAPI}/setReservation.php`,
+                data: 'stationId='+formId+'&userId='+user.id+'&nb_bikes='+quantite,
+                success: function(response){
+                    console.log(response);
+                    quantite--;
+                    marker.available_bikes--;
+                    console.log(quantite);
+                    $('#formReservation-'+formId).attr("onsubmit", "reservationVelo("+quantite+','+formId+")");
+                    $('#veloDispo-'+formId).html(quantite);
+                    placesDisponibles = $('#placeDispo-'+formId).html(); 
+                    placesDisponibles++;
+                    $('#placeDispo-'+formId).html(placesDisponibles);
+                    if( quantite <= 0){
+                        $('.mapboxgl-popup-content').css('background-color', 'red');
+                        alert('Plus aucun vélo disponible !');
+                    }
+                   
+                    //$(el).unbind();
+                    // $("footer").show()
+                }
+
+            });
+       
+        
+}$(document).ready(function() {
+    $('form').on('submit', function(e){
+        e.preventDefault();
+    });
+  });

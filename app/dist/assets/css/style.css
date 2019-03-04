@@ -254,15 +254,15 @@ h1::first-letter {
   height: 100vh;
 }
 
-#popup {
-  padding: 0 6px;
-}
-
 .popupTitle {
   font-size: 15px;
   font-weight: 700;
   display: block;
   margin-bottom: 2px;
+}
+
+.modal-title {
+  text-align: center;
 }
 
 .popupSubtitle {
@@ -280,6 +280,34 @@ h1::first-letter {
 
 .confirmModal {
   background-color: #ecf0f1;
+}
+
+.mapboxgl-popup {
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  left: initial;
+  width: 40%;
+  height: 100vh;
+  -webkit-transform: none !important;
+          transform: none !important;
+}
+
+@media screen and (max-width: 640px) {
+  .mapboxgl-popup {
+    width: 100%;
+  }
+}
+
+.mapboxgl-popup-close-button {
+  top: initial;
+  right: initial;
+  background-image: url('../../../src/assets/img/left-icon.png');
+  background-size: cover;
+}
+
+.mapboxgl-popup-content {
+  height: inherit;
 }
 
 /* ---------------------------------------------------

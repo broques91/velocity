@@ -68,6 +68,7 @@
                     <div id='map'></div> 
                 </div>
 
+
                 <?php include('inc/modules/modals/modal-reservation.php'); ?>   
 
                 <!-- FOOTER -->
