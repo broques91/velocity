@@ -30,6 +30,56 @@ center: [4.8320114, 45.7578137],
 zoom: 15
 });
 
+//Compte à rebours réservation
+var secon=0 ;//initialise les secondes 
+var minu=20; //initialise les minutes 
+var heur=0; //initialise les minutes 
+function deleteReservation(i){
+    //Requete ajax
+    $.ajax({
+        type: "POST",
+        url: `${urlAPI}/deleteReservation.php`,
+        data: 'stationId='+formId+'&userId='+user.id+'&nb_bikes='+quantite,
+            success: function(response){
+                console.log(response);
+            }
+    });
+}
+function reservationChrono(i){ 
+    
+    if (secon != 0 || minu != 0 || heur != 0){// si on n'atteind pas 00:00:00 
+        secon--; 
+        if (secon<0){
+            secon=59; 
+            if (minu >0){
+                 minu--;
+            }else{
+                minu=59; 
+                heur--;
+            } 
+        } 
+        if (secon < 10 ){
+             secondes = '0'+secon;
+        }else {
+            secondes = secon;
+        } 
+        if (minu < 10 ) {
+            minutes = '0'+minu;
+        }else {
+            minutes = minu;
+        } 
+        if (heur < 10 ) {
+            heures = '0'+heur;
+        }else {heures = heur;
+        }
+        if(minu == 0 && secon == 0 ){
+            deleteReservation(i);
+        }
+        document.getElementById('stopwatch').innerHTML = heures+' : '+minutes+' : '+secondes; 
+        compte=setTimeout('reservationChrono()',1000); //la fonction est relancée tous les secondes 
+    } 
+} 
+
 var urlAPI = 'http://localhost/projects/velocity/api';
 
 $.ajax({
@@ -126,9 +176,6 @@ function reservationVelo(i, j){
         formId = j;
         console.log(quantite);
 
-       
-
-
             // AJAX request
             $.ajax({
                 type: "POST",
@@ -149,8 +196,8 @@ function reservationVelo(i, j){
                         alert('Plus aucun vélo disponible !');
                     }
                    
-                    //$(el).unbind();
-                    // $("footer").show()
+                    reservationChrono(); 
+                    $("footer").show(1200000);
                 }
 
             });

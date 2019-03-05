@@ -73,7 +73,11 @@
 
                 <!-- FOOTER -->
                 <footer class="mt-auto fixed-bottom p-4 bg-light">
-                    <span>Réservation en cours<span>
+                    <span>Votre réservation expire dans : <span>
+                    <div id="stopwatch"></div>
+                    <form action="">
+                        <button type="submit" class="btn btn-sm btn-danger" onsubmit="return deleteReservation(i)">Annuler</button>
+                    </form>
                 </footer>
             </section>
 
