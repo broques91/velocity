@@ -120,15 +120,30 @@ $.ajax({
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${marker.name}</h5>
-                    
-                    <p class="card-subtitle mb-2 text-muted" id="station_adress-${marker.number}">${marker.address}</p>
+            
+                    <i class="text-muted fas fa-map-marker-alt"></i>
+                    <span class="card-subtitle mb-2 text-muted" id="station_adress-${marker.number}">${marker.address}</span>
+                  
                 </div>
 
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><i class="mr-3 fas fa-sort"></i>Etat : <span class="test" id="status-${marker.number}">${marker.status}</span> </li>
-                    <li class="list-group-item"><i class="mr-3 fas fa-bicycle"></i>Vélos disponibles : <span id="veloDispo-${marker.number}">${marker.available_bikes}</span> </li>
-                    <li class="list-group-item"><i class="mr-3 fas fa-parking"></i>Places disponibles : <span id="placeDispo-${marker.number}">${marker.available_bike_stands}</span></li>
-                    <li class="list-group-item"><i class="mr-3 far fa-credit-card"></i><span id="paiementDispo-${marker.number}"></span>${marker.banking}</li>
+                
+                    <li class="list-group-item"><i class="mr-3 fas fa-sort"></i><span class="test" id="status-${marker.number}">${marker.status}</span> </li>
+                    <li class="list-group-item">
+                    <div class="row justify-content-between">
+                        <div> 
+                            <span id="veloDispo-${marker.number}">${marker.available_bikes}</span> <i class= "fas fa-bicycle"></i>
+                        </div>
+                        <div> 
+                            <span id="placeDispo-${marker.number}">${marker.available_bike_stands}</span> <i class="fas fa-parking"></i>
+                        </div>
+                        <div>
+                            <i class="mr-3 far fa-credit-card"></i><span id="paiementDispo-${marker.number}"></span>${marker.banking}
+                        </div>
+                    </div>
+                    </li>
+                   
+                    
                 </ul>
                 
                 <div class="card-body">
