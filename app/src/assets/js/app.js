@@ -30,6 +30,7 @@ center: [4.8320114, 45.7578137],
 zoom: 15
 });
 
+
 //Compte à rebours réservation
 var secon=0 ;//initialise les secondes 
 var minu=20; //initialise les minutes 
@@ -114,7 +115,7 @@ $.ajax({
             
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25,}).setHTML(`
-            <div>
+            <div class="container">
                 <div class="card-header bg-light text-center">
                     <h5>Infos Station</h5>
                 </div>
@@ -130,7 +131,7 @@ $.ajax({
                 
                     <li class="list-group-item"><i class="mr-3 fas fa-sort"></i><span class="test" id="status-${marker.number}">${marker.status}</span> </li>
                     <li class="list-group-item">
-                    <div class="row justify-content-between">
+                    <div class="detailsStation">
                         <div> 
                             <span id="veloDispo-${marker.number}">${marker.available_bikes}</span> <i class= "fas fa-bicycle"></i>
                         </div>
@@ -146,7 +147,7 @@ $.ajax({
                     
                 </ul>
                 
-                <div class="card-body">
+                <div>
                     <form id="formReservation-${marker.number}" class="my-3" action="" onsubmit="reservationVelo(${marker.available_bikes}, ${marker.number});"  method="post" data-quantite="${marker.available_bikes}" data-id="${marker.number}">
                         <div class="form-group">
                             <input type="text" name="firstname" class="form-control" placeholder="Prénom">

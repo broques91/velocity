@@ -100,7 +100,9 @@ h1::first-letter {
     height: 100vh;
  }
 
-
+/* ---------------------------------------------------
+    POPUP STYLE
+----------------------------------------------------- */
 
  .popupTitle{
      display: block;
@@ -128,8 +130,13 @@ h1::first-letter {
      background-color: #ecf0f1;
  }
 
+ .detailsStation{
+     display: flex;
+     justify-content: space-between;
+     font-size: 16px;
+ }
  .mapboxgl-popup{
-     z-index: 9998;
+     z-index: 997;
      top: 0;
      left: initial;
      width: 25%;
@@ -137,12 +144,18 @@ h1::first-letter {
      right: 0;
      transform: none !important;
  }
+
+ .mapboxgl-popup-content{
+     padding-top:67px;
+ }
  @media screen and (max-width: 640px) {
     .mapboxgl-popup {
       width: 100%;
     }
   }
  .mapboxgl-popup-close-button{
+     margin-top: 13px;
+     margin-left: 5px;
      background-image: url('../../../src/assets/img/left-icon.png');
      background-size: cover;
      top: initial;
@@ -163,5 +176,3 @@ footer{
     padding:5px;
     display:none;
 }
-
-
