@@ -10,10 +10,10 @@
             <div class="modal-body">
                 <form id="formLogin" class="my-3" action="api/checkUser.php" method="post">
                     <div class="form-group">
-                        <input type="text" name="username" class="form-control" placeholder="Username" required>
+                        <input type="text" name="username" class="form-control" placeholder="Pseudo" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        <input type="password" name="password" class="form-control" placeholder="Mot de passe" required>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" value="Login" class="btn btn-block btn-primary ">

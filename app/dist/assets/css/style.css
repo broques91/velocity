@@ -12,7 +12,7 @@
   height: 100vh;
   transition: all .3s;
   color: #fff;
-  background: #dc3545;
+  background: #de3c4b;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
 }
 
@@ -30,11 +30,11 @@
   cursor: pointer;
   transition: all .3s;
   text-align: center;
-  background: #dc3545;
+  background: #de3c4b;
 }
 
 #dismiss:hover {
-  color: #dc3545;
+  color: #de3c4b;
   background: #fff;
 }
 
@@ -56,7 +56,7 @@
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #dc3545;
+  background: #de3c4b;
 }
 
 #sidebar ul.components {
@@ -75,7 +75,7 @@
 }
 
 #sidebar ul li a:hover {
-  color: #dc3545;
+  color: #de3c4b;
   background: #fff;
 }
 
@@ -95,7 +95,7 @@ a[data-toggle='collapse'] {
 ul ul a {
   font-size: .9em !important;
   padding-left: 30px !important;
-  background: #dc3545;
+  background: #de3c4b;
 }
 
 a.article,
@@ -214,7 +214,7 @@ a:focus {
 }
 
 h1::first-letter {
-  color: red;
+  color: #de3c4b;
 }
 
 .bx-prev,
