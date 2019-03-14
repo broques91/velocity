@@ -30,6 +30,7 @@ center: [4.8320114, 45.7578137],
 zoom: 15
 });
 
+
 //Compte à rebours réservation
 var secon=0 ;//initialise les secondes 
 var minu=20; //initialise les minutes 
@@ -74,6 +75,7 @@ function reservationChrono(i){
         }
         if(minu == 0 && secon == 0 ){
             deleteReservation(i);
+            $("footer").hide(500);
         }
         document.getElementById('stopwatch').innerHTML = heures+' : '+minutes+' : '+secondes; 
         compte=setTimeout('reservationChrono()',1000); //la fonction est relancée tous les secondes 
@@ -113,46 +115,65 @@ $.ajax({
             
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25,}).setHTML(`
-            <div>
-                <div >
-                    <div >
-                        <div>
-                            <h5 class="modal-title" id="exampleModalLabel-${marker.number}">Info Stations</h5>
-                        </div>
-                        <div >
-                            <!-- <div class="mb-3 text-center">
-                                <img src="src/assets/img/velo.png" width="300">
-                            </div> -->
-                            <h3 id="station_name" class="mt-3">${marker.name}</h3>
-                            <i class="mr-2 mb-3 fas fa-map-marker-alt"></i><small id="station_adress-${marker.number}" class="text-muted"/>${marker.address}</small>
-                            <ul>
-                                <li><i class="mr-3 fas fa-sort"></i>Etat : <span class="test" id="status-${marker.number}">${marker.status}</span> </li>
-                                <li><i class="mr-3 fas fa-bicycle"></i>Vélos disponibles : <span id="veloDispo-${marker.number}">${marker.available_bikes}</span> </li>
-                                <li><i class="mr-3 fas fa-parking"></i>Places disponibles : <span id="placeDispo-${marker.number}">${marker.available_bike_stands}</span></li>
-                                <li><i class="mr-3 far fa-credit-card"></i><span id="paiementDispo-${marker.number}"></span>${marker.banking}</li></li>
-                                
-                            </ul>
-                            <form id="formReservation-${marker.number}" class="my-3" action="" onsubmit="reservationVelo(${marker.available_bikes}, ${marker.number});"  method="post" data-quantite="${marker.available_bikes}" data-id="${marker.number}">
-                                    <div class="form-group">
-                                        <input type="text" name="firstname" class="form-control" placeholder="Prénom">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="lastname" class="form-control" placeholder="Nom">
-                                    </div>
-                                    <div class=-modal-footer>
-                                        <div class="form-group">
-                                            <input type="submit"  name="submitReservation" value="Reserver" class="btn btn-block btn-danger ">
-                                        </div>
-                                    </div>
-                            </form>
+            <div class="container">
+                <div class="card-header bg-light text-center">
+                    <h5>Infos Station</h5>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">${marker.name}</h5>
+            
+                    <i class="text-muted fas fa-map-marker-alt"></i>
+                    <span class="card-subtitle mb-2 text-muted" id="station_adress-${marker.number}">${marker.address}</span>
+                  
+                </div>
 
+                <ul class="list-group list-group-flush">
+                
+                    <li class="list-group-item"><i class="mr-3 fas fa-sort"></i><span class="test" id="status-${marker.number}">${marker.status}</span> </li>
+                    <li class="list-group-item">
+                    <div class="detailsStation">
+                        <div> 
+                            <span id="veloDispo-${marker.number}">${marker.available_bikes}</span> <i class= "fas fa-bicycle"></i>
                         </div>
-                        
+                        <div> 
+                            <span id="placeDispo-${marker.number}">${marker.available_bike_stands}</span> <i class="fas fa-parking"></i>
+                        </div>
+                        <div>
+                            <i class="mr-3 far fa-credit-card"></i><span id="paiementDispo-${marker.number}"></span>${marker.banking}
+                        </div>
                     </div>
+                    </li>
+                   
+                    
+                </ul>
+                
+                <div>
+                    <form id="formReservation-${marker.number}" class="my-3" action="" onsubmit="reservationVelo(${marker.available_bikes}, ${marker.number});"  method="post" data-quantite="${marker.available_bikes}" data-id="${marker.number}">
+                        <div class="form-group">
+                            <input type="text" name="firstname" class="form-control" placeholder="Prénom">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastname" class="form-control" placeholder="Nom">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit"  name="submitReservation" value="Reserver" class="btn btn-block btn-danger ">
+                        </div>
+                    </form>
                 </div>
             </div>
+            
             `);
-            // $(el).off('click');
+
+            $(el).click(function(){
+                    $(popup).animate({
+                      width: "70%",
+                      opacity: 0.4,
+                      marginLeft: "0.6in",
+                      fontSize: "3em",
+                      borderWidth: "10px"
+                    }, 1500 );
+            });
+            
             
             // add marker to map
             new mapboxgl.Marker(el)
@@ -197,7 +218,7 @@ function reservationVelo(i, j){
                     }
                    
                     reservationChrono(); 
-                    $("footer").show(1200000);
+                    $("footer").show();
                 }
 
             });

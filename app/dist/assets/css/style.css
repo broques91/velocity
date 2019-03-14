@@ -12,7 +12,7 @@
   height: 100vh;
   transition: all .3s;
   color: #fff;
-  background: #7386d5;
+  background: #de3c4b;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, .2);
 }
 
@@ -30,11 +30,11 @@
   cursor: pointer;
   transition: all .3s;
   text-align: center;
-  background: #7386d5;
+  background: #de3c4b;
 }
 
 #dismiss:hover {
-  color: #7386d5;
+  color: #de3c4b;
   background: #fff;
 }
 
@@ -56,12 +56,11 @@
 
 #sidebar .sidebar-header {
   padding: 20px;
-  background: #6d7fcc;
+  background: #de3c4b;
 }
 
 #sidebar ul.components {
   padding: 20px 0;
-  border-bottom: 1px solid #47748b;
 }
 
 #sidebar ul p {
@@ -76,14 +75,8 @@
 }
 
 #sidebar ul li a:hover {
-  color: #7386d5;
+  color: #de3c4b;
   background: #fff;
-}
-
-#sidebar ul li.active > a,
-a[aria-expanded='true'] {
-  color: #fff;
-  background: #6d7fcc;
 }
 
 a[data-toggle='collapse'] {
@@ -102,7 +95,7 @@ a[data-toggle='collapse'] {
 ul ul a {
   font-size: .9em !important;
   padding-left: 30px !important;
-  background: #6d7fcc;
+  background: #de3c4b;
 }
 
 a.article,
@@ -221,7 +214,7 @@ a:focus {
 }
 
 h1::first-letter {
-  color: red;
+  color: #de3c4b;
 }
 
 .bx-prev,
@@ -254,6 +247,9 @@ h1::first-letter {
   height: 100vh;
 }
 
+/* ---------------------------------------------------
+    POPUP STYLE
+----------------------------------------------------- */
 .popupTitle {
   font-size: 15px;
   font-weight: 700;
@@ -282,15 +278,25 @@ h1::first-letter {
   background-color: #ecf0f1;
 }
 
+.detailsStation {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .mapboxgl-popup {
-  z-index: 9998;
+  z-index: 997;
   top: 0;
   right: 0;
   left: initial;
-  width: 40%;
+  width: 25%;
   height: 100vh;
   -webkit-transform: none !important;
           transform: none !important;
+}
+
+.mapboxgl-popup-content {
+  padding-top: 67px;
 }
 
 @media screen and (max-width: 640px) {
@@ -302,6 +308,8 @@ h1::first-letter {
 .mapboxgl-popup-close-button {
   top: initial;
   right: initial;
+  margin-top: 13px;
+  margin-left: 5px;
   background-image: url('../../../src/assets/img/left-icon.png');
   background-size: cover;
 }

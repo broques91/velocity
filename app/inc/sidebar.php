@@ -1,15 +1,14 @@
 <!-- Sidebar  -->
-<nav id="sidebar" class="bg-danger">
+<nav id="sidebar">
         <div id="dismiss">
             <i class="fas fa-arrow-left"></i>
         </div>
 
         <div class="sidebar-header">
-            <h3>Hello</h3>
+            <h3>User</h3>
         </div>
 
         <ul class="list-unstyled components">
-            <p>User</p>
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">

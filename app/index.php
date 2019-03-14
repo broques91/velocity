@@ -30,7 +30,32 @@
             <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
-                        Modal center with carrousel
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="http://via.placeholder.com/350x350" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="http://via.placeholder.com/350x350" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="http://via.placeholder.com/350x350" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
                     </div>
                 </div>
             </div>
@@ -40,7 +65,7 @@
                 <main class="row align-items-center flex-grow-1">
                     <div id="test" class="col-sm-10 col-md-6 col-lg-3 mx-auto">
                         <div class="jumbotron bg-transparent text-center mb-0">
-                            <h2 class="mb-3">Velocity</h2>    
+                            <h1 class="mb-3">Velo'city</h1>    
                             <hr class="text-border">
                             <!-- LOGIN FORM -->
                             <form id="formLogin" class="my-3" action="api/checkUser.php" method="post">
