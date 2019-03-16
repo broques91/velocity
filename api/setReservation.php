@@ -4,7 +4,11 @@
     require('database.php');
     global $db;
 
-    // $nbVelo = $_POST['nb_bikes']
+    $now = new DateTime();
+    function updateReservations($db){
+        $q = $db->prepare("DELETE FROM reservations WHERE date_reservation <= now() - INTERVAL 20 MINUTE ");
+        $q->execute();
+    }
 
     if(isset($_POST['stationId']) && isset($_POST['userId']) && isset($_POST['nb_bikes']) ){
         $id_station = $_POST['stationId'];
@@ -22,10 +26,14 @@
         $count = $q->rowCount();
         // SI RESERVATION DU MEME USER SUR LA MEME STATION
         if ( $count > 0){
-       // DELETE ALL RESERVATIONS > 20 MINUTES
-            // deleteReservations($db);
-        // UPDATE SQL
-        echo "Vous avez déjà une réservation dans cette station";
+            // DELETE ALL RESERVATIONS > 20 MINUTES
+            updateReservations($db);
+            // UPDATE SQL
+            echo "Vous avez déjà une réservation dans cette station";
+            $q = $db->prepare("UPDATE `reservations` SET `date_reservation` = now() WHERE `id_station` = '".$id_station."' AND `id_user` = '".$id_user."' ");
+            $q->execute();
+            $data = $q->fetch(PDO::FETCH_ASSOC);
+            echo "Update réservation OK";
         // SI PAS DE RESERVATION ===> INSERT
         }else{
             $sql = "INSERT INTO reservations (id_station, id_user, nb_bikes) VALUES (:id_station, :id_user, :nb_bikes)";
@@ -33,5 +41,4 @@
                  echo 'OK';
             }
         }
-     
     }

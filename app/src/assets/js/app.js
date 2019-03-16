@@ -30,22 +30,24 @@ center: [4.8320114, 45.7578137],
 zoom: 15
 });
 
-
 //Compte à rebours réservation
 var secon=0 ;//initialise les secondes 
 var minu=20; //initialise les minutes 
-var heur=0; //initialise les minutes 
+var heur=0; //initialise les heures 
+
 function deleteReservation(i){
     //Requete ajax
     $.ajax({
         type: "POST",
         url: `${urlAPI}/deleteReservation.php`,
         data: 'stationId='+formId+'&userId='+user.id+'&nb_bikes='+quantite,
-            success: function(response){
-                console.log(response);
-            }
+
+        success: function(response){
+            console.log(response);
+        }
     });
 }
+
 function reservationChrono(i){ 
     
     if (secon != 0 || minu != 0 || heur != 0){// si on n'atteind pas 00:00:00 
@@ -84,6 +86,7 @@ function reservationChrono(i){
 
 var urlAPI = 'http://localhost/projects/velocity/api';
 
+// Requête Ajax 
 $.ajax({
     type: "GET",
     //dataType: "JSON",
@@ -106,19 +109,15 @@ $.ajax({
                 stationPayment: marker.banking
             }
 
-            if(marker.status === 'OPEN'){
-                $('.test').css('color', 'green');
-              }else{
-                $('.test').css('color', 'red');
-            }
-
-            
+            console.log(`status-${marker.number}`);
+          
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25,}).setHTML(`
             <div class="container">
-                <div class="card-header bg-light text-center">
+                <div class="pt-3 text-center">
                     <h5>Infos Station</h5>
                 </div>
+                <hr>
                 <div class="card-body">
                     <h5 class="card-title">${marker.name}</h5>
             
@@ -129,7 +128,7 @@ $.ajax({
 
                 <ul class="list-group list-group-flush">
                 
-                    <li class="list-group-item"><i class="mr-3 fas fa-sort"></i><span class="test" id="status-${marker.number}">${marker.status}</span> </li>
+                    <li class="list-group-item"><i class="mr-3 fas fa-sort"></i><span class="test" id="status-${marker.number}">${marker.status}</span></li>
                     <li class="list-group-item">
                     <div class="detailsStation">
                         <div> 
@@ -144,7 +143,6 @@ $.ajax({
                     </div>
                     </li>
                    
-                    
                 </ul>
                 
                 <div>
@@ -163,15 +161,13 @@ $.ajax({
             </div>
             
             `);
-            
+
             // add marker to map
             new mapboxgl.Marker(el)
                 .setLngLat(marker.position)
                 .setPopup(popup)
                 .addTo(map);
-            
         });
-
     },
     error: function(data){
         console.error();
@@ -179,39 +175,40 @@ $.ajax({
 });
 
 function reservationVelo(i, j){
-        event.preventDefault();
+    event.preventDefault();
 
-        // console.log(user.id);
-        quantite = i;
-        formId = j;
-        console.log(quantite);
+    // console.log(user.id);
+    quantite = i;
+    formId = j;
+    console.log(quantite);
 
-            // AJAX request
-            $.ajax({
-                type: "POST",
-                url: `${urlAPI}/setReservation.php`,
-                data: 'stationId='+formId+'&userId='+user.id+'&nb_bikes='+quantite,
-                success: function(response){
-                    console.log(response);
-                    quantite--;
-                    marker.available_bikes--;
-                    console.log(quantite);
-                    $('#formReservation-'+formId).attr("onsubmit", "reservationVelo("+quantite+','+formId+")");
-                    $('#veloDispo-'+formId).html(quantite);
-                    placesDisponibles = $('#placeDispo-'+formId).html(); 
-                    placesDisponibles++;
-                    $('#placeDispo-'+formId).html(placesDisponibles);
-                    if( quantite <= 0){
-                        $('.mapboxgl-popup-content').css('background-color', 'red');
-                        alert('Plus aucun vélo disponible !');
-                    }
-                   
-                    reservationChrono(); 
-                    $("footer").show();
-                }
-
-            });
-       
+    // Requête Ajax
+    $.ajax({
+        type: "POST",
+        url: `${urlAPI}/setReservation.php`,
+        data: 'stationId='+formId+'&userId='+user.id+'&nb_bikes='+quantite,
+        success: function(response){
+            console.log(response);
+            quantite--;
+            marker.available_bikes--;
+            console.log(quantite);
+            //Mise à jour des infos station dans la popup 
+            $('#formReservation-'+formId).attr("onsubmit", "reservationVelo("+quantite+','+formId+")");
+            $('#veloDispo-'+formId).html(quantite);
+            placesDisponibles = $('#placeDispo-'+formId).html(); 
+            placesDisponibles++;
+            $('#placeDispo-'+formId).html(placesDisponibles);
+            // S'il n'y a plus de vélos disponibles
+            if( quantite <= 0){
+                $('.mapboxgl-popup-content').css('background-color', 'red');
+                alert('Plus aucun vélo disponible !');
+            }
+            // Affichage du footer avec le chrono
+            reservationChrono(); 
+            $("footer").show();
+        }
+    });
+    
         
 }$(document).ready(function() {
     $('form').on('submit', function(e){

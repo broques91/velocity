@@ -284,6 +284,10 @@ h1::first-letter {
   justify-content: space-between;
 }
 
+.stationOpen {
+  color: green;
+}
+
 .mapboxgl-popup {
   z-index: 997;
   top: 0;
