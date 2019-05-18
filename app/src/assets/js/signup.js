@@ -2,10 +2,9 @@ var urlAPI = 'http://localhost/projects/velocity/api';
 
 $('#formSignup').submit(function(event) {
     event.preventDefault();
-    // console.log("on submit");
     serializeFormSignup = $(this).serialize();
-    //  console.log(serializeFormLogin);
      
+    //Requête Ajax
      $.ajax({
          type: "post",
          url:  `${urlAPI}/signUser.php`,
@@ -16,7 +15,6 @@ $('#formSignup').submit(function(event) {
                 $(".modal-backdrop").hide();
                 $(".navbar").show();
                 $("#map").show();
-                // $("footer").show();
 
                 var mapDiv = $("#map");
                 var canvasMap = $(".mapboxgl-canvas");

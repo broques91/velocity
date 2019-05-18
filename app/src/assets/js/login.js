@@ -2,10 +2,9 @@ var urlAPI = 'http://localhost/projects/velocity/api';
 
 $('#formLogin').submit(function(event) {
     event.preventDefault();
-    // console.log("on submit");
     serializeFormLogin = $(this).serialize();
-    //  console.log(serializeFormLogin);
      
+    // Requête Ajax
      $.ajax({
          type: "post",
          url:  `${urlAPI}/checkUser.php`,
@@ -16,6 +15,7 @@ $('#formLogin').submit(function(event) {
             user = data;
             // console.log(user);
             
+            // Si l'utilisateur s'est loggé avec succès => Affichage du menu principal de l'appli...
             if(data.username){
                 $("#test").hide();
                 $(".modal-backdrop").hide();

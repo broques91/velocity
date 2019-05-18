@@ -5,7 +5,7 @@
         </div>
 
         <div class="sidebar-header">
-            <h3>User</h3>
+            <h3><?php echo $_SESSION['username'] ?></h3>
         </div>
 
         <ul class="list-unstyled components">
